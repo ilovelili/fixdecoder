@@ -60,30 +60,25 @@ func (dfs DecodedFields) String() string {
 		var output interface{}
 		if line.DecodedValue != "" {
 			output = struct {
-				FieldID      string
+				ID           string
+				Name         string
 				Value        string
-				FieldName    string
-				FieldType    string
 				DecodedValue string
 			}{
-				FieldID:      line.FieldID,
+				ID:           line.FieldID,
+				Name:         line.Field.Name,
 				Value:        line.Value,
-				FieldName:    line.Field.Name,
-				FieldType:    line.Field.Type,
 				DecodedValue: line.DecodedValue,
 			}
 		} else {
 			output = struct {
-				FieldID   string
-				Value     string
-				FieldName string
-				FieldType string
-				Classes   string
+				ID    string
+				Name  string
+				Value string
 			}{
-				FieldID:   line.FieldID,
-				Value:     line.Value,
-				FieldName: line.Field.Name,
-				FieldType: line.Field.Type,
+				ID:    line.FieldID,
+				Name:  line.Field.Name,
+				Value: line.Value,
 			}
 		}
 
