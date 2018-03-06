@@ -62,27 +62,28 @@ func (dfs DecodedFields) String() string {
 			output = struct {
 				FieldID      string
 				Value        string
-				Field        *FieldMetaData
+				FieldName    string
+				FieldType    string
 				DecodedValue string
-				Classes      string
 			}{
 				FieldID:      line.FieldID,
 				Value:        line.Value,
-				Field:        line.Field,
+				FieldName:    line.Field.Name,
+				FieldType:    line.Field.Type,
 				DecodedValue: line.DecodedValue,
-				Classes:      line.Classes,
 			}
 		} else {
 			output = struct {
-				FieldID string
-				Value   string
-				Field   *FieldMetaData
-				Classes string
+				FieldID   string
+				Value     string
+				FieldName string
+				FieldType string
+				Classes   string
 			}{
-				FieldID: line.FieldID,
-				Value:   line.Value,
-				Field:   line.Field,
-				Classes: line.Classes,
+				FieldID:   line.FieldID,
+				Value:     line.Value,
+				FieldName: line.Field.Name,
+				FieldType: line.Field.Type,
 			}
 		}
 
